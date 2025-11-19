@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nogalim</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="cart.js"></script>
+</head>
+<body>
+  <header>
+<div class="menu-container">
+  <div id="menu-toggle">
+    <div class="hamburger"></div>
+    Menu
+  </div>
+  <div id="dropdown">
+    <a href="index.html">🏠 Home</a>
+    <a href="cart.html">🛒 Cart</a>
+    <a href="all.html">📦 All</a>
+    <a href="socials.html">🌐 Our Socials</a>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const dropdown = document.getElementById("dropdown");
+
+  toggle.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
+</script>
+
+    <nav>
+
+      <button class="logout-button" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+
+<div class="slideshow-container">
+  <div class="slide fade" style="display:block;">
+    <img src="https://m.media-amazon.com/images/I/71GhkxT0dML._UF894,1000_QL80_.jpg" alt="Slide 1">
+    <div class="slide-overlay">
+      <button class="buy-btn" onclick="window.location.href='All.html'">BUY NOW</button>
+    </div>
+  </div>
+  <div class="slide fade">
+    <img src="https://ajazzstore.com/cdn/shop/files/800x800_3.jpg?v=1736392728" alt="Slide 2">
+    <div class="slide-overlay">
+      <button class="buy-btn" onclick="window.location.href='All.html'">BUY NOW</button>
+    </div>
+  </div>
+  <div class="slide fade">
+    <img src="https://mechanicalkeyboards.com/cdn/shop/files/25898-Q1BG4-Keychron-C3-Pro-TKL-8K-Keyboard.jpg?v=1751292665&width=650" alt="Slide 3">
+    <div class="slide-overlay">
+      <button class="buy-btn" onclick="window.location.href='All.html'">BUY NOW</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+</script>
+
+
+
+
+<!-- Full Slideshow End -->
+
+
+
+  <!-- image modal -->
+  <div id="imageModal" class="modal" style="display:none; position:fixed; left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.9); z-index:1000;">
+    <span style="position:absolute; top:12px; right:20px; font-size:40px; color:#fff; cursor:pointer;" onclick="closeImage()">&times;</span>
+    <img id="modalImage" style="display:block; margin:60px auto; max-width:90%; max-height:80vh;">
+  </div>
+<!-- Chat Icon -->
+<div id="my-chat-icon" style="
+  position:fixed;bottom:20px;right:20px;
+  width:50px;height:50px;background:#0084ff;
+  border-radius:50%;color:#fff;font-size:24px;
+  text-align:center;line-height:50px;cursor:pointer;
+  z-index:9999;
+">💬</div>
+
+<!-- Chat Window -->
+<div id="my-chat-window" style="
+  position:fixed;bottom:80px;right:20px;
+  width:300px;height:400px;background:#fff;
+  border:1px solid #ccc;border-radius:10px;
+  display:none;flex-direction:column;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  z-index:9999;
+">
+  <!-- Header with arrows -->
+  <div style="
+    background:#0084ff;color:#fff;padding:10px;
+    font-weight:bold;border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    display:flex;justify-content:space-between;
+    align-items:center;
+  ">
+    <span id="my-arrow-left" style="cursor:pointer;">⬅</span>
+    <span id="my-chat-title">ChatGPT</span>
+    <span id="my-arrow-right" style="cursor:pointer;">➡</span>
+  </div>
+
+  <!-- Body -->
+  <div style="
+    flex:1;padding:10px;display:flex;
+    flex-direction:column;justify-content:flex-start;
+    font-size:16px;overflow-y:auto;
+  ">
+    <div id="my-chat-messages" style="margin-bottom:10px;">Hello! How can I help you?</div>
+    <input id="my-chat-input" type="text" placeholder="Type a message..." style="
+      width:100%;padding:5px;margin-top:auto;border:1px solid #ccc;border-radius:5px;
+    "/>
+    <button id="my-chat-send" style="
+      margin-top:5px;padding:5px 10px;background:#0084ff;color:white;border:none;border-radius:5px;
+      cursor:pointer;
+    ">Send</button>
+  </div>
+</div>
+
+<script>
+
+</script>
+
+
+  <!-- load cart.js once at the end -->
+   <script>
+const firebaseConfig = {
+ apiKey:"AIzaSyCl2VZqcUi1rtso-_CzBwhnlGYGqydEiRU",
+  authDomain:"nogalim-58121.firebaseapp.com",
+  projectId: "nogalim-58121",
+  storageBucket: "nogalim-58121.firebasestorage.app",
+  messagingSenderId: "791547602130",
+  appId: "1:791547602130:web:34b88883dec222718b790b",
+};
+
+firebase.initializeApp(firebaseConfig);
+window.db = firebase.firestore();
+window.doc = firebase.firestore().doc;
+window.getDoc = firebase.firestore().getDoc;
+window.setDoc = firebase.firestore().setDoc;
+</script>
+<script>
+let slideIndex = 0;
+autoShowSlides();
+
+function autoShowSlides() {
+  const slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(autoShowSlides, 2000); // every 2 seconds
+}
+function changeSlide(n) {
+  slideIndex += n - 1;
+  autoShowSlides();
+}
+</script>
+
+  <script src="cart.js"></script>
+</body>
+</html>

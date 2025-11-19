@@ -1,0 +1,832 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    position: relative;
+}
+
+header {
+    background-color:  #197149;
+    color: #197149;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: var(--vw100, 100vw);
+}
+
+header h1 {
+    color: #197149;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+text{
+    color: white;
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: double;
+}
+
+h1 {
+    margin-bottom: 9px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 225px;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.4s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+ width: 100%;
+  height: 200px;   /* or any height you want */
+  object-fit: contain; /* or 'cover' for zoomed crop */
+  border-radius: 8px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight:normal;
+    color: #adadad;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: #2ecc71;
+    color: #000000dd;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.add-to-cart:hover {
+    background-color: #26a159;
+}
+
+main {
+    padding: 20px;
+}
+
+h2, h3 {
+    margin-bottom: 15px;
+}
+
+#cart-items {
+    margin: 20px 0;
+}
+
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-list li {
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.payment-options {
+    margin-top: 20px;
+}
+
+.payment-button {
+    background-color: #ea673f;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    padding-right: 500px;
+    margin: 0 auto;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+}
+
+.payment-button:hover {
+    background-color: #960080dd;
+}
+
+.payment-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+#card-element {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#submit {
+    width: 15%;
+    margin-left: 500px;
+    text-align: center;
+    text-decoration-color: black;
+}
+
+.delete-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #e55347;
+}
+
+.payment-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.total-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ddd;
+    margin-top: 10px;
+}
+
+.login-form, .signup-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px; /* Set a width for the forms */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    color: #000000;
+        font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    position: absolute; /* Keeps it positioned in the top right */
+    top: 20px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background-color: #ff5b4c; /* Button color */
+    color: white; /* Text color */
+    padding: 5px 15px; /* Adjust padding as needed */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Change cursor on hover */
+    z-index: 1000; /* Ensure it appears above other elements */
+    width: auto; /* Set width to auto to fit the content */
+    min-width: 70px; /* Set a minimum width if desired */
+    max-width: 100px; /* Optional: Set a maximum width if needed */
+    text-align: center; /* Center the text inside the button */
+    transition: transform 0.8s;
+}
+
+.logout-button:hover {
+    background-color: #e55347;
+    transform: scale(1.1);
+}
+
+.icons {
+    font-size: 4em;
+    color: #3a6cf4;
+    text-align: center;
+}
+
+#cart-items {
+    width: 20%;
+    padding-right: 120px;
+    margin-right: 30px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.modal-content {
+    width: 0; /* Initial width */
+    height: 0; /* Initial height */
+    transition: width 4s, height 4s; /* Smooth transition for width and height */
+    object-fit: cover; /* Cover the content properly */
+    display: block; /* Display the image */
+    margin: auto; /* Center the image */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content {
+    width: 0; /* Initial width */
+    height: 0; /* Initial height */
+    transition: width 2s, height 2s; /* Change to 2 seconds for a faster transition */
+    object-fit: cover; /* Cover the content properly */
+    display: block; /* Display the image */
+    margin: auto; /* Center the image */
+}
+
+.socials {
+    margin-right: 90%;
+}
+
+#search {
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff; /* Improved contrast */
+    line-height: 1.625;
+
+    background-color: #333;
+    background-image: url('https://example.com/icon.png'); /* Replace with a valid image URL */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; /* Position the icon to the right */
+    background-size: 20px; /* Adjust icon size */
+
+    border: 1px solid #eee;
+    border-radius: 4px;
+
+    width: 100%;
+    padding: 15px;
+    padding-right: 50px; /* Space for the icon on the right */
+    box-sizing: border-box; /* Ensures padding doesn’t affect total width */
+    cursor: text; /* Appropriate cursor for a text input */
+}
+
+#instapay {
+    display: flex;
+    color: black;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.search-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  padding: 5px;
+}
+
+#searchInput {
+  width: 0;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: width 0.4s ease, opacity 0.3s;
+  opacity: 0;
+  position: absolute;
+  left: 30px;
+  top: -5px;
+}
+
+#searchInput.expanded {
+  width: 200px;
+  opacity: 1;
+}
+
+/* Container pinned top-left */
+  .menu-container {
+    position:sticky; /* stay on screen */
+    top: 10px;
+    left: 40px;
+    z-index: 999;
+  }
+
+  /* Menu button (text + hamburger) */
+  #menu-toggle {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    padding-left: 40px;
+  }
+
+  /* Hamburger bars */
+  .hamburger {
+    width: 22px;
+    height: 3px;
+    background: black;
+    position: relative;
+    transition: 0.4s;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    background: black;
+    left: 0;
+    transition: 0.4s;
+  }
+  .hamburger::before {
+    top: -7px;
+  }
+  .hamburger::after {
+    top: 7px;
+  }
+
+  /* Dropdown menu */
+  #dropdown {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border: 2px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-20px) scale(0.9);
+    pointer-events: none;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* bounce animation */
+  }
+
+  #dropdown a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: all 0.4s ease;
+  }
+
+  #dropdown a:hover {
+    background: black;
+    color: white;
+    transform: translateX(5px);
+  }
+
+  /* Active state (show menu with animation) */
+  #dropdown.show {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+   .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* fits full image without cropping top/bottom */
+}
+
+  html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+}
+
+
+.slideshow-container { position: relative; width: 100%; height: calc(100vh - 63px); overflow: hidden; }
+.slide { position: absolute; width: 100%; height: 100%; display: none; }
+.slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(70%); }
+.slide-overlay { position: absolute; bottom: 20px; z-index: 10; width: auto; height: auto; left:50%;}
+.buy-btn { background: transparent; color: #fff; border: 1px solid #fff; padding: 6px 12px; font-size: 14px; cursor: pointer; border-radius: 2px; }
+.buy-btn:hover { background: #fff; color: #000; }
+.fade { animation: fade 1s ease-in-out; }
+@keyframes fade { from { opacity: 0.3; } to { opacity: 1; } }
+  .product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.details-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.details-btn.active + .details {
+  max-height: 500px; /* adjust based on content */
+}
+
+  /* Container pinned top-left */
+  .menu-container {
+    position: sticky; /* stay on screen */
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+
+  /* Menu button (text + hamburger) */
+  #menu-toggle {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    padding-left: 40px;
+  }
+
+  /* Hamburger bars */
+  .hamburger {
+    width: 22px;
+    height: 3px;
+    background: black;
+    position: relative;
+    transition: 0.4s;
+  }
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    background: black;
+    left: 0;
+    transition: 0.4s;
+  }
+  .hamburger::before {
+    top: -7px;
+  }
+  .hamburger::after {
+    top: 7px;
+  }
+
+  /* Dropdown menu */
+  #dropdown {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border: 2px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-20px) scale(0.9);
+    pointer-events: none;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* bounce animation */
+  }
+
+  #dropdown a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: all 0.4s ease;
+  }
+
+  #dropdown a:hover {
+    background: black;
+    color: white;
+    transform: translateX(5px);
+  }
+
+  /* Active state (show menu with animation) */
+  #dropdown.show {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .details-btn {
+  background: rgba(0,0,0,0.05); /* subtle light background */
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header
+{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+/* Container pinned top-left */
+  .menu-container {
+    position: sticky; /* stay on screen */
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+
+  /* Menu button (text + hamburger) */
+  #menu-toggle {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    padding-left: 40px;
+  }
+
+  /* Hamburger bars */
+  .hamburger {
+    width: 22px;
+    height: 3px;
+    background: black;
+    position: relative;
+    transition: 0.4s;
+  }
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    background: black;
+    left: 0;
+    transition: 0.4s;
+  }
+  .hamburger::before {
+    top: -7px;
+  }
+  .hamburger::after {
+    top: 7px;
+  }
+
+  /* Dropdown menu */
+  #dropdown {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border: 2px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-20px) scale(0.9);
+    pointer-events: none;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* bounce animation */
+  }
+
+  #dropdown a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: all 0.4s ease;
+  }
+
+  #dropdown a:hover {
+    background: black;
+    color: white;
+    transform: translateX(5px);
+  }
+
+  /* Active state (show menu with animation) */
+  #dropdown.show {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  :root{
+  --emerald:#2ecc71;
+  --blue:#007bff;
+  --bg: linear-gradient(180deg,#f3fff8,#eef7ff);
+  --card:#ffffff;
+  --muted:#556b6b;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, Arial;
+}
+*{box-sizing:border-box}
+.container{max-width:1100px;margin:0 auto; margin-top: 50px;}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--emerald),var(--blue))}
+h1{margin:0;font-size:20px}
+.small{font-size:13px color var(--muted)}
+.layout{display:grid;grid-template-columns:1fr;gap:18px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(3,40,40,0.06)}
+@media(min-width:920px){ .layout{grid-template-columns:1fr 420px} }
+
+.cart-list{display:flex;flex-direction:column;gap:12px}
+.item{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fbfffb,#ffffff);border:1px solid rgba(3,40,40,0.03)}
+.thumb{width:72px;height:72px;border-radius:8px;background:#eef;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+.meta{flex:1}
+.title{font-weight:700;color:#064}
+.sku{font-size:13px;color:var(--muted);margin-top:4px}
+.controls{display:flex;align-items:center;gap:8px;margin-top:10px}
+.qty{display:flex;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.qty button{background:var(--blue);color:white;border:none;padding:8px 10px;cursor:pointer}
+.qty input{width:48px;text-align:center;border:0;padding:8px;background:white;outline:none}
+.price{font-weight:800;color:#022;min-width:120px;text-align:right}
+.remove{background:transparent;border:none;color:#b33;cursor:pointer;font-size:13px;margin-left:8px}
+
+.checkout-area{display:flex;flex-direction:column;gap:12px}
+.input{padding:10px;border-radius:8px;border:1px solid #e6f0ef;background:#fbfffd;width:100%}
+.btn{background:linear-gradient(90deg,var(--emerald),var(--blue));color:white;border:none;padding:12px;border-radius:10px;cursor:pointer;font-weight:800}
+.btn-ghost{background:#fff;border:1px solid var(--blue);color:var(--blue);padding:10px;border-radius:8px;cursor:pointer}
+.summary{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;background:#fbfffb}
+.total-row{display:flex;justify-content:space-between;font-weight:800}
+.note{font-size:13px;color:#556;margin-top:8px}
+.hidden{display:none}
+.thank{padding:30px;text-align:center}
+.footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+.cart-message {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.cart-box {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: white;
+  text-align: center;
+  padding: 30px 50px;
+  animation: popup 0.4s ease;
+}
+
+.cart-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.cart-box p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.cart-box .btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.cart-box button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.cart-box button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+@keyframes popup {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.original-price {
+  color: red;
+  text-decoration: line-through;
+  font-size: 17px;
+  margin: 0px 10px;
+}

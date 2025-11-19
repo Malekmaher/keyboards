@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>All</title>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="index.css">
+<script src="cart.js"></script>
+</head>
+<body>
+<header>
+<nav>
+
+<div class="menu-container">
+  <div id="menu-toggle">
+    <div class="hamburger"></div>
+    Menu
+  </div>
+  <div id="dropdown">
+    <a href="index.html">🏠 Home</a>
+    <a href="cart.html">🛒 Cart</a>
+    <a href="all.html">📦 All</a>
+    <a href="socials.html">🌐 Our Socials</a>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const dropdown = document.getElementById("dropdown");
+
+  toggle.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
+</script>
+
+
+<button class="logout-button" onclick="logout()">Logout</button>
+</nav>
+</header>
+<div class="container">
+
+  <div id="productList" class="product-list">
+
+  
+<div class="product-card" data-name="Keychron C2 wired" data-price="60">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUppZ0WBxruFvL367CY72XTlVagtiqguo4HA&s" alt="Keychron K2">
+  <h3>Keychron C2 wired</h3>
+  <div class="price">3707 EGP</div>
+
+  <button class="add-to-cart" data-name="Keychron C2 wired" data-price="60">Add to Cart</button>
+  
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 100%</p>
+    <p>Keycaps: ABS</p>
+    <p>Specs: Hot-swappable, RGB support, Aluminum frame</p>
+  </div>
+</div>
+
+
+
+<div class="product-card" data-name="Keychron K12 wireless" data-price="70">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnLmapYKWxMTMr3DI9RiasbWetuzg13t7qZQ&s" alt="Keychron K12">
+  <h3>Keychron K12 wireless</h3>
+  <div class="price">4135 EGP</div>
+
+  <button class="add-to-cart" data-name="Keychron K12 wireless" data-price="70">Add to Cart</button>
+  
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Gateron Optical Red/Blue/Brown</p>
+    <p>Connectivity: Bluetooth 5.1 / USB-C</p>
+    <p>Layout: 60%</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: Hot-swappable, RGB backlight, Compact design, Aluminum frame</p>
+  </div>
+</div>
+
+
+
+    <div class="product-card" data-name="Redragon K552 Kumara" data-price="35">
+  <img src="https://www.redragonzone.com/cdn/shop/products/K552R-2-1_450x450.png?v=1533022707" alt="Redragon K552">
+  <h3>Redragon K552 Kumara</h3>
+  <div class="price">2234 EGP</div>
+
+  <button class="add-to-cart" data-name="Redragon K552 Kumara" data-price="35">Add to Cart</button>
+  
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: Tenkeyless (87 keys)</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Compact and durable design</p>
+  </div>
+</div>
+
+
+   <div class="product-card" data-name="Redragon K556" data-price="52">
+  <img src="https://www.redragonzone.com/cdn/shop/products/K556_450x450.png?v=1535696598" alt="Redragon K556">
+  <h3>Redragon K556</h3>
+  <div class="price">3089 EGP</div>
+
+  <button class="add-to-cart" data-name="Redragon K556" data-price="52">Add to Cart</button>
+  
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue/Red/Brown</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: Full-size (104 keys)</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Durable aluminum frame, Anti-ghosting</p>
+  </div>
+</div>
+
+
+
+<!-- 5. tac75 HE -->
+<div class="product-card" data-name="tac75 HE" data-price="69">
+  <img src="https://en.akkogear.com/wp-content/uploads/2025/05/TAC75-HE-Black-XQ-Q-768x432.webp" alt="tac75 HE">
+  <h3>tac75 HE</h3>
+  <div class="price">4088 EGP</div>
+  <button class="add-to-cart" data-name="tac75 HE" data-price="69">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Gateron Optical Red/Blue/Brown</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 75%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: Hot-swappable, RGB backlight, Aluminum frame</p>
+  </div>
+</div>
+
+<!-- 6. midnight 5087S QMK -->
+<div class="product-card" data-name="midnight 5087S QMK" data-price="70">
+  <img src="https://en.akkogear.com/wp-content/uploads/2024/08/Midnight-5087S-OMK-2.png" alt="midnight 5087S QMK">
+  <h3>midnight 5087S QMK</h3>
+  <div class="price">4135 EGP</div>
+  <button class="add-to-cart" data-name="midnight 5087S QMK" data-price="70">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Gateron Optical</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 65%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: QMK firmware support, Hot-swappable, RGB backlight</p>
+  </div>
+</div>
+
+<!-- 7. ajazz ak680 wireless -->
+<div class="product-card" data-name="ajazz ak680 wireless" data-price="47">
+  <img src="https://ajazzstore.com/cdn/shop/files/800x800_3.jpg?v=1736392728" alt="ajazz ak680 wireless">
+  <h3>ajazz ak680 wireless</h3>
+  <div class="price">2756</div>
+  <button class="add-to-cart" data-name="ajazz ak680 wireless" data-price="47">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue/Red/Brown</p>
+    <p>Connectivity: Bluetooth / Wired</p>
+    <p>Layout: 65%</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: Wireless dual mode, RGB backlight, Hot-swappable</p>
+  </div>
+</div>
+
+<!-- 8. Tecware Phantom -->
+<div class="product-card" data-name="Tecware Phantom" data-price="50">
+  <img src="https://static.wixstatic.com/media/8517ed_f651ee46d3ae4788ad22aec0ed6bb233~mv2.png" alt="Tecware Phantom">
+  <h3>Tecware Phantom</h3>
+  <div class="price">2947 EGP</div>
+  <button class="add-to-cart" data-name="Tecware Phantom" data-price="50">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue/Red/Brown</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: Tenkeyless</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Durable build</p>
+  </div>
+</div>
+
+<!-- 9. Havit KB488L -->
+<div class="product-card" data-name="Havit KB488L" data-price="67">
+  <img src="https://www.prohavit.com/cdn/shop/files/KB874L_6_cbf8aa60-d1a9-46b9-b5d1-7e0e30fc1407.jpg?v=1716382447&width=800" alt="Havit KB488L">
+  <h3>Havit KB488L 75%</h3>
+  <div class="price">3945 EGP</div>
+  <button class="add-to-cart" data-name="Havit KB488L" data-price="67">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Kailh Blue/Red/Brown</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: 75%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Compact design</p>
+  </div>
+</div>
+
+<!-- 10. AJAZZ AF98 -->
+<div class="product-card" data-name="AJAZZ AF98" data-price="29">
+  <img src="https://ajazzstore.com/cdn/shop/files/AJAZZ_AF98_10.jpg?v=1749203393" alt="AJAZZ AF98">
+  <h3>AJAZZ AF98</h3>
+  <div class="price">2756 EGP</div>
+  <button class="add-to-cart" data-name="AJAZZ AF98" data-price="29">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue/Red/Brown</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: 98 keys (Compact Full-size)</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Hot-swappable</p>
+  </div>
+</div>
+
+<!-- 11. GK61 (Hot-swap) -->
+<div class="product-card" data-name="GK61 (Hot-swap)" data-price="60">
+  <img src="https://hkgaming.com/cdn/shop/files/gk61v3_black_0.jpg?v=1700682614&width=600" alt="GK61">
+  <h3>GK61 (Hot-swap)</h3>
+  <div class="price">3665 EGP</div>
+  <button class="add-to-cart" data-name="GK61 (Hot-swap)" data-price="60">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Gateron Optical</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 60%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: Hot-swappable, RGB backlight, Compact design</p>
+  </div>
+</div>
+
+<!-- 12. Fizz k617 magnetic hall effect -->
+<div class="product-card" data-name="Fizz k617 magnetic hall effect" data-price="65">
+  <img src="https://redragonshop.com/cdn/shop/files/RedragonFIZZK61760RapidTriggerMagneticSwitchGamingKeyboard_1_1.png" alt="Fizz k617">
+  <h3>Fizz k617 magnetic hall effect</h3>
+  <div class="price">3850 EGP</div>
+  <button class="add-to-cart" data-name="Fizz k617 magnetic hall effect" data-price="65">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Magnetic Hall Effect</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 60%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: Hot-swappable, RGB backlight, Durable metal case</p>
+  </div>
+</div>
+
+<!-- 13. Lemokey X3 -->
+<div class="product-card" data-name="Lemokey X3" data-price="70">
+  <img src="https://www.keychron.com/cdn/shop/files/Lemokey-X3-QMK-VIA-Wired-Mechanical-Keyboard-100-Percent-Layout-Keychron-Mechanical-Brown-Switch.jpg?v=1712979727&width=900" alt="Lemokey X3">
+  <h3>Lemokey X3</h3>
+  <div class="price">4135 EGP</div>
+  <button class="add-to-cart" data-name="Lemokey X3" data-price="70">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Keychron Brown</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 100%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: QMK/VIA compatible, RGB backlight, Mechanical switches</p>
+  </div>
+</div>
+
+<!-- 14. Logitech G413 -->
+<div class="product-card" data-name="Logitech G413" data-price="68">
+  <img src="https://resource.logitechg.com/w_480,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/g413-firebird/g413-gallery-3-nb.png?v=1" alt="Logitech G413">
+  <h3>Logitech G413</h3>
+  <div class="price">4040 EGP</div>
+  <button class="add-to-cart" data-name="Logitech G413" data-price="68">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Romer-G Linear</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: Full-size</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Aircraft-grade aluminum top case</p>
+  </div>
+</div>
+
+<!-- 15. AJAZZ AK680 -->
+<div class="product-card" data-name="AJAZZ AK680" data-price="47">
+  <img src="https://ajazzstore.com/cdn/shop/files/800x800_3.jpg?v=1736392728" alt="AJAZZ AK680">
+  <h3>AJAZZ AK680</h3>
+  <div class="price">2756</div>
+  <button class="add-to-cart" data-name="AJAZZ AK680" data-price="47">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Blue/Red/Brown</p>
+    <p>Connectivity: Wired USB / Wireless</p>
+    <p>Layout: 65%</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: Dual mode, Hot-swappable, RGB backlight</p>
+  </div>
+</div>
+
+<!-- 16. Cooler Master SK621 -->
+<div class="product-card" data-name="Cooler Master SK621" data-price="72">
+  <img src="https://ajazzstore.com/cdn/shop/files/IMG_0644.png?v=1742439631" alt="Cooler Master SK621">
+  <h3>AJAZZ AK680 MAX</h3>
+  <div class="price">4277</div>
+  <button class="add-to-cart" data-name="Cooler Master SK621" data-price="72">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Cherry MX Low Profile</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 60%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: Compact design, RGB backlight, Mechanical switches</p>
+  </div>
+</div>
+
+<!-- 17. Rapoo V500Pro -->
+<div class="product-card" data-name="Rapoo V500Pro" data-price="55">
+  <img src="https://www.rapoo-eu.com/wp-content/uploads/2020/08/1514278391-5984-1-100x100.webp" alt="Rapoo V500Pro">
+  <h3>Rapoo V500Pro</h3>
+  <div class="price">3232 EGP</div>
+  <button class="add-to-cart" data-name="Rapoo V500Pro" data-price="55">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Outemu Red/Blue/Brown</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: Full-size</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: Mechanical switches, RGB backlight, Anti-ghosting</p>
+  </div>
+</div>
+
+<!-- 18. Xinmeng M75 -->
+<div class="product-card" data-name="Xinmeng M75" data-price="69">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYJhtCZDaEiiP5jKtaQA7aptiIgppeL8RmQ&s" alt="Xinmeng M75">
+  <h3>Xinmeng M75</h3>
+  <div class="price">4088 EGP</div>
+  <button class="add-to-cart" data-name="Xinmeng M75" data-price="69">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Gateron Optical</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 75%</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: Hot-swappable, RGB backlight, Compact design</p>
+  </div>
+</div>
+
+<!-- 19. HyperX Alloy FPS Pro -->
+<div class="product-card" data-name="HyperX Alloy FPS Pro" data-price="65">
+  <img src="https://m.media-amazon.com/images/I/612KPOukkQL._UF894,1000_QL80_.jpg" alt="HyperX Alloy FPS Pro">
+  <h3>HyperX Alloy FPS Pro</h3>
+  <div class="price">3850 EGP</div>
+  <button class="add-to-cart" data-name="HyperX Alloy FPS Pro" data-price="65">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: Cherry MX Red</p>
+    <p>Connectivity: Wired USB</p>
+    <p>Layout: Tenkeyless</p>
+    <p>Keycaps: ABS</p>
+    <p>Manufacturer Specs: Compact, RGB backlight, Mechanical switches</p>
+  </div>
+</div>
+
+<!-- 20. HyperX Alloy Origins Core -->
+<div class="product-card" data-name="HyperX Alloy Origins Core" data-price="70">
+  <img src="https://m.media-amazon.com/images/I/71GhkxT0dML._UF894,1000_QL80_.jpg" alt="HyperX Alloy Origins Core">
+  <h3>HyperX Alloy Origins Core</h3>
+  <div class="price">4135 EGP</div>
+  <button class="add-to-cart" data-name="HyperX Alloy Origins Core" data-price="70">Add to Cart</button>
+  <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches: HyperX Red</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: Tenkeyless</p>
+    <p>Keycaps: PBT</p>
+    <p>Manufacturer Specs: RGB backlight, Mechanical switches, Compact design</p>
+  </div>
+</div>
+
+
+    <div class="product-card" data-name="Zerodate K61 60% Mario" data-price="35">
+      <img src="https://i.postimg.cc/FHkxqfqT/55f638371d449c901832dbd7eadaf48.png" ="Zerodate K61 60% Mario">
+      <h3>Zerodate K61 60% Mario</h3>
+      <div class="price">2234 EGP</div>
+      
+      <button class="add-to-cart" data-name="Zerodate K61 60% Mario" data-price="35">Add to Cart</button>
+        <button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switches:Hall-effect Magnetic</p>
+    <p>Connectivity: Wired USB-C</p>
+    <p>Layout: 60%</p>
+    <p>Keycaps: Double-shot ABS</p>
+    <p>Manufacturer Specs: RGB backlight, Hall affect magnetic switches, Compact design, Hot-swappable</p>
+  </div>
+    </div>
+
+<div class="product-card" data-name="Zerodate K61 (60%)" data-price="30">
+  <img src="https://i.postimg.cc/28Kw2dHq/88922ad98aea7d2f4c17f2e2146f760.png" alt="Zerodate K61 (60%)">
+  <h3>Zerodate K61 (60%)</h3>
+  <div class="price">2852 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Hall-effect Magnetic</p>
+    <p>Connection: Wired USB-C</p>
+    <p>Layout: 60% (61 keys)</p>
+    <p>Backlight: RGB</p>
+    <p>Keycaps: Double-shot ABS</p>
+    <p>Material: Plastic</p>
+    <p>Features: Hot-swappable; QMK/VIA support</p>
+  </div>
+  <button class="add-to-cart" data-name="Zerodate K61 (60%)" data-price="30">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="Zerodate K98 Full" data-price="40">
+  <img src="https://www.velocifiretech.com/cdn/shop/files/1_159f7108-b742-406c-903c-de98399c4f03.jpg?v=1745306324" alt="Zerodate K98 Full">
+  <h3>Zerodate K98 Full</h3>
+  <div class="price">2614 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Outemu Blue (clicky)</p>
+    <p>Connection: Wired USB</p>
+    <p>Layout: Full (98 keys)</p>
+    <p>Backlight: RGB</p>
+    <p>Keycaps: ABS doubleshot</p>
+    <p>Material: Plastic</p>
+    <p>Features: Hot-swappable; compact layout</p>
+  </div>
+  <button class="add-to-cart" data-name="Zerodate K98 Full" data-price="40">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="Keychron B33 TKL" data-price="35">
+  <img src="https://mechanicalkeyboards.com/cdn/shop/files/26135-1L3JS-Keychron-B33-TKL-Wireless-Low-Profile-Keyboard.jpg?v=1755610148&width=650" alt="Keychron B33 TKL">
+  <h3>Keychron B33 TKL</h3>
+  <div class="price">2234 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Scissor-type low-profile (silent)</p>
+    <p>Connection: BT 5.2 / 2.4GHz / USB-C</p>
+    <p>Layout: TKL (80%)</p>
+    <p>Backlight: None</p>
+    <p>Keycaps: Scissor low-profile</p>
+    <p>Material: Plastic</p>
+    <p>Features: Magnetic dongle storage; Win/Mac toggle</p>
+  </div>
+  <button class="add-to-cart" data-name="Keychron B33 TKL" data-price="35">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="Meko Blink 60%" data-price="75">
+  <img src="https://mechanicalkeyboards.com/cdn/shop/files/5478_63adff13b65fc_Blink.jpg?v=1707269526&width=650" alt="Meko Blink 60%">
+  <h3>Meko Blink 60%</h3>
+  <div class="price">4420 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Gateron/Cherry/Kailh (hot-swap)</p>
+    <p>Connection: Wired USB-C / Bluetooth (3 devices)</p>
+    <p>Layout: 60% (61 keys)</p>
+    <p>Backlight: RGB</p>
+    <p>Keycaps: Double-shot ABS</p>
+    <p>Material: Plastic</p>
+    <p>Features: Hot-swappable; 3-device BT pairing</p>
+  </div>
+  <button class="add-to-cart" data-name="Meko Blink 60%" data-price="75">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="Ducky One 2 Mini" data-price="79">
+  <img src="https://mechanicalkeyboards.com/cdn/shop/files/17202-BCHTZ-MK-x-Ducky-One-2-Mini-Pro-Blackout.jpg?v=1727277484&width=650" alt="Ducky One 2 Mini">
+  <h3>Ducky One 2 Mini</h3>
+  <div class="price">4753 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Cherry MX (Blue/Brown/Red/etc.)</p>
+    <p>Connection: Wired USB-C</p>
+    <p>Layout: 60% (61 keys)</p>
+    <p>Backlight: RGB per-key</p>
+    <p>Keycaps: Double-shot PBT</p>
+    <p>Material: Plastic</p>
+    <p>Features: Onboard DIP switches; macros (Ducky Macro 2.0)</p>
+  </div>
+  <button class="add-to-cart" data-name="Ducky One 2 Mini" data-price="79">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="Meko Push 65%" data-price="70">
+  <img src="https://mechanicalkeyboards.com/cdn/shop/files/5488_62a3ccf1e591f_Push.jpg?v=1707269527&width=720" alt="Meko Push 65%">
+  <h3>Meko Push 65%</h3>
+  <div class="price">4135 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Cherry/Kailh/Gateron (hot-swap)</p>
+    <p>Connection: Wired USB-C / Bluetooth (5 devices)</p>
+    <p>Layout: 65% (71 keys)</p>
+    <p>Backlight: RGB</p>
+    <p>Keycaps: Double-shot ABS</p>
+    <p>Material: Plastic</p>
+    <p>Features: Hot-swappable; arrow keys; long battery (5000mAh)</p>
+  </div>
+  <button class="add-to-cart" data-name="Meko Push 65%" data-price="70">Add to Cart</button>
+</div>
+
+<div class="product-card" data-name="IKBC TD108" data-price="65">
+  <img src="https://mechanicalkeyboards.com/cdn/shop/files/968-XE2JW-TD108-Cherry-MX-Blue.jpg?v=1751784070&width=650" alt="IKBC TD108">
+  <h3>IKBC TD108</h3>
+  <div class="price">3850 EGP</div>
+<button class="details-btn">▼</button>
+  <div class="details">
+    <p>Switch: Cherry MX (Blue/Brown/Red/Black/Silver)</p>
+    <p>Connection: Wired USB</p>
+    <p>Layout: Full (108 keys)</p>
+    <p>Backlight: Blue LED (10 modes)</p>
+    <p>Keycaps: PBT doubleshot</p>
+    <p>Material: Plastic</p>
+    <p>Features: Mac hotkeys; 6-key rollover</p>
+  </div>
+  <button class="add-to-cart" data-name="IKBC TD108" data-price="65">Add to Cart</button>
+</div>
+
+</div>
+</div>
+<div id="addToCartMessage" class="cart-message">
+  <div class="cart-box">
+    <h2>Added to Cart 🛒</h2>
+    <p>Your item has been successfully added.</p>
+    <div class="btns">
+      <button onclick="continueShopping()">Continue Shopping</button>
+      <button onclick="goToCart()">View Cart</button>
+    </div>
+  </div>
+</div>
+<script src="cart.js"></script>
+
+
+
+
+</body>

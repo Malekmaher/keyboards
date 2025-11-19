@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to Nogalim</title>
+  <style>
+    body {
+      background: #121212;
+      color: #00bfff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .typing-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      height: 3rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background-color: #00bfff;
+      margin-left: 5px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .auth0-lock-header-logo,
+    .auth0-lock-avatar {
+      display: none !important;
+    }
+
+    .auth0-lock-header {
+      padding-top: 0 !important;
+      margin-top: -20px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="typing-wrapper">
+    <span id="text"></span><span class="cursor"></span>
+  </div>
+
+  <div id="auth0-lock-container"></div>
+
+  <!-- Auth0 Lock CDN -->
+  <script src="https://cdn.auth0.com/js/lock/11.30/lock.min.js"></script>
+  <script>
+    async function onLoginSuccess(userData){
+    const userCartFromDB = userData.cart || [];
+
+    // Merge guest cart from localStorage
+    const mergedCart = mergeGuestCart(userCartFromDB);
+
+    // Update global cart and UI
+    cart = mergedCart;
+    saveCart();
+
+    // Save auth token
+    localStorage.setItem('authToken', userData.token);
+}
+
+    // Typing effect
+    const message = "Welcome to Nogalim";
+    const textEl = document.getElementById("text");
+
+    function typeMessage() {
+      textEl.textContent = "";
+      let index = 0;
+      function typeChar() {
+        if (index < message.length) {
+          textEl.textContent += message.charAt(index++);
+          setTimeout(typeChar, 100);
+        } else {
+          setTimeout(typeMessage, 2500); // Restart after delay
+        }
+      }
+      typeChar();
+    }
+
+    typeMessage();
+
+    // Auth0 Lock setup
+    const lock = new Auth0Lock(
+      '6MCTIz9DKc8iseamgSNg5m2WoX7ajBgq', // Replace with your client ID
+      'dev-8a5ganiwhdla3541.us.auth0.com', // Replace with your domain
+      {
+        container: 'auth0-lock-container',
+        auth: {
+          redirectUrl: 'http://127.0.0.1:5500/index.html',
+          responseType: 'token id_token',
+          params: {
+            scope: 'openid profile email'
+          }
+        },
+        allowSignUp: false,
+        allowLogin: true,
+        allowedConnections: ['google-oauth2', 'github'],
+        theme: {
+          primaryColor: '#1A73E8'
+        },
+        languageDictionary: {
+          title: 'Nogalim'
+        }
+      }
+    );
+
+    lock.show();
+  </script>
+  <script src="cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@auth0/auth0-spa-js@2/dist/auth0-spa-js.production.js"></script>
+
+<script type="module">
+const auth0 = await createAuth0Client({
+  domain: "dev-8a5ganiwhdla3541.us.auth0.com",
+  client_id: "6MCTIz9DKc8iseamgSNg5m2WoX7ajBgq"
+});
+
+const isAuthenticated = await auth0.isAuthenticated();
+if (isAuthenticated) {
+    const user = await auth0.getUser();
+    onLogin(user.sub);
+}
+
+document.getElementById("loginBtn")?.addEventListener("click", async () => {
+    await auth0.loginWithRedirect({ redirect_uri: window.location.origin });
+});
+
+document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    onLogout();
+    auth0.logout({ returnTo: window.location.origin });
+});
+</script>
+</body>
+</html>
